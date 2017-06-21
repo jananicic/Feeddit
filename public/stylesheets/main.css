@@ -1,0 +1,39 @@
+.center{
+    text-align:center;
+}
+.button-landing{
+    width:45%;
+    margin:20px auto;
+}
+
+.margint{
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#337ab7;
+}
+
+.bigertext{
+    line-height:1;
+    font-size:4em;
+}
+
+.wrap{
+    word-wrap:normal;
+}
+
+.button-transperant {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

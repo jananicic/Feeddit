@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">Add new article</h1>
+        <div style="width:30%; margin:20px auto;">
+            <form action="/article" method="POST">
+                <div class="form-group">
+                    Vote #: <input class="form-control" type="text" name="points"  value="0" disabled>
+                </div>
+                <div class="form-group">
+                    By user: <input class="form-control" type="text" name="user" value="<%= currentUser.username %>" disabled>
+                </div>
+                <div class="form-group">
+                    Headline:<input class="form-control" type="text" name="headline" placeholder="Article Headline" maxlength="40">
+                </div>
+                <div class="form-group">
+                    Link:<input class="form-control" type="text" name="link" placeholder="www.ag04.com">
+                </div>
+                <div class="form-group">
+                    Author:<input class="form-control" type="text" name="author" placeholder="Author Full Name" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg btn-default btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/article">Cancle</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

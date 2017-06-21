@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+<div style="width:30%; margin:20px auto;">
+    <form action="/<%=currentUser.username%>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-large btn-danger btn-block">Delete selected</button>
+        <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+            <% if(articles !== null){ 
+             articles.forEach(function(article){ %>
+                <div style="width:100%;">
+                    <div style="width:20%;float:left;">
+                        <h1 class="bigertext">
+                            <%= article.points %>
+                        </h1>
+                    </div>
+                    <div style="width:60%;float:left;">
+                        <div style="width:100%;">
+                            <a href="<%=article.link %>">
+                                <h1 class="wrap">
+                                    <%=article.headline %>
+                                </h1>
+                            </a>
+                        </div>
+                        <div style="width:100%;">
+                            <h3>
+                                <%=article.author%>
+                            </h3>
+                        </div>
+                    </div>
+                    <div style="width:20%;float:left;">
+                        <input style="margin-top:50%;" type="checkbox" name="deleteCheckbox[]" value="<%=article._id%>">
+                    </div>
+                </div>
+            <% });  
+            }else{ 
+                req.flash("error", "Nema članaka");
+                if(error && error.length > 0){ %>
+                     <div class="alert alert-danger" role="alert">
+                        <%= error%><p>asdasd</p>
+                     </div>
+                <% } 
+            } %>
+        </div>
+    </form>
+    <a href="/article"><h3>back</h3></a>
+</div>
+<% include ../partials/footer %>

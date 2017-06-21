@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+
+<div style="width:30%; margin:20px auto;">
+    <a class="btn btn-large btn-primary btn-block" href="article/new">Add new article</a>
+    <div class="row text-center margint" style="display:flex; flex-wrap:wrap;">
+        <% articles.forEach(function(article){ %>
+            <div class="margint thumbnail" style="width:100%;">
+                <div style="width:20%;float:left;">
+                    <h1 class="bigertext">
+                        <%= article.points %>
+                    </h1>
+                </div>
+                <div style="width:60%;float:left;">
+                    <div style="width:100%;">
+                        <a href="<%=article.link %>">
+                            <h1 class="wrap">
+                                <%=article.headline %>
+                            </h1>
+                        </a>
+                    </div>
+                    <div style="width:100%;">
+                        <h3>
+                            <%=article.author%>
+                        </h3>
+                    </div>
+                </div>
+                <div style="width:20%;float:left;">
+                    <form action="/article/upvote" method="POST" style="width:100%;">
+                        <input class="form-control" type="hidden" name="username"  value="<%=currentUser.username%>">
+                        <input class="form-control" type="hidden" name="article"  value="<%=article._id%>">
+                        <button class="bigertext button-transperant">
+                            <i class="fa fa-angle-up bigertext" aria-hidden="true"></i>
+                        </button>
+                    </form>    
+
+                    <form action="/article/downvote" method="POST" style="width:100%;">
+                        <input class="form-control" type="hidden" name="username"  value="<%=currentUser.username%>">
+                        <input class="form-control" type="hidden" name="article"  value="<%=article._id%>">
+                        <button class="bigertext button-transperant">
+                            <i class="fa fa-angle-down bigertext" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>    
+        <% }); %> 
+    </div>
+    <nav aria-label="Page navigation"  style:"margin:-left:50%;">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+<% include ../partials/footer %>
