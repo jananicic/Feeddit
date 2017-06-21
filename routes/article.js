@@ -27,7 +27,7 @@ router.post("/article/upvote", middleware.isLoggedIn, function(req, res){
                     value: 1
     };
     console.log("article_id: "+article);
-    Vote.find({article_id: article}, function(err, testVote){
+    Vote.find({article_id: article,username: user}, function(err, testVote){
         var testVote2 = testVote.toString();
         if(err){
             console.log(err);

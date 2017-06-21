@@ -18,7 +18,8 @@ var indexRoutes = require("./routes/index"),
     sectionRoutes = require("./routes/section"),
     articleRoutes = require("./routes/article");
     
-mongoose.connect('mongodb://jananicic:password@ds133582.mlab.com:33582/feeddit');    
+mongoose.connect('mongodb://jananicic:password@ds133582.mlab.com:33582/feeddit'); 
+process.env.databaseURL
 //mongoose.connect('mongodb://localhost/feeddit');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
